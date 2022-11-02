@@ -1,6 +1,6 @@
 export interface CarItem {
   id: number;
-  startDate: Date;
+  startDate: string;
   createdAt: Date;
   attribute: {
     brand: string;
@@ -9,5 +9,6 @@ export interface CarItem {
     fuelType: string;
     imageUrl: string;
   };
+  insurance: { name: string; description: string }[];
   amount: number;
 }
