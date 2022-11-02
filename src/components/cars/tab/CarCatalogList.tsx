@@ -19,11 +19,15 @@ export default function CarCatalogList({ segment }: { segment?: Segment }) {
         <li key={id}>
           <Link href={`/cars/${id}`}>
             <Brand>{attribute.brand}</Brand>
+
             <Name>{attribute.name}</Name>
+
             <CarType>
               {attribute.segment} / {attribute.fuelType}
             </CarType>
+
             <Amount>월 {amount} 원 부터</Amount>
+
             <CarImage>
               <img src={attribute.imageUrl} alt="" />
             </CarImage>
@@ -35,16 +39,23 @@ export default function CarCatalogList({ segment }: { segment?: Segment }) {
 }
 
 const Ul = styled.ul`
+  word-break: keep-all;
+  border-style: solid;
+  border-width: 1px 0;
+
   li {
-    border: 1px solid green;
-    padding: 20px;
     font-size: 1.4rem;
 
     a {
+      padding: 20px;
       text-decoration: none;
       display: grid;
       grid-template-columns: 1fr 152px;
     }
+  }
+
+  li + li {
+    border-top: 1px solid;
   }
 `;
 
