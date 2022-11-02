@@ -1,6 +1,6 @@
 import { get } from './axiosInstance';
 
-export const getCar = async ({
+export const getCarDetail = async ({
   fuelType,
   segment,
 }: {
@@ -8,9 +8,9 @@ export const getCar = async ({
   segment: string;
 }) => {
   const { data } = await get({
-    url: `/cars?segment=${segment}&fuelType=${fuelType}`,
+    url: `/cars`,
     qsData: { segment, fuelType },
   });
 
-  return data.payload;
+  return data.payload[0];
 };
