@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import NotFoundCar from '../../components/NotFoundCar';
 import CarsList from '../../components/cars/tab/CarCatalogList';
 import TabLayout from '../../components/cars/tab/TabLayout';
 import { useAllCarList } from '../../hooks/useAllCarList';
@@ -24,7 +25,7 @@ export default function CarList() {
   if (allCarList.length === 0) {
     return (
       <TabLayout>
-        <h1>차량이 없습니다.</h1>
+        <NotFoundCar />
       </TabLayout>
     );
   }
