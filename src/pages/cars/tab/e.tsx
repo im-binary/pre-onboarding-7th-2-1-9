@@ -3,7 +3,7 @@ import { SSRSuspense } from '../../../components/cars/SSRSuspense';
 import CarCatalogList from '../../../components/cars/tab/CarCatalogList';
 import TabLayout from '../../../components/cars/tab/TabLayout';
 
-export default function SegmentE() {
+export default function SegmentEPage() {
   return (
     <TabLayout>
       <SSRSuspense fallback={<Loading />}>
