@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import React, { ReactNode, Suspense } from 'react';
+import React, { ReactNode } from 'react';
+import { Theme } from '../../../styles/Theme';
 import { Header } from '../../Header';
 import { NavLink } from '../../NavLink';
 
@@ -15,17 +16,17 @@ export default function TabLayout({ children }: { children: ReactNode }) {
             </NavLink>
           </li>
           <li>
-            <NavLink href="/cars/tab/fullsize">
+            <NavLink href="/cars/tab/e">
               <button type="button">대형</button>
             </NavLink>
           </li>
           <li>
-            <NavLink href="/cars/tab/midsize">
+            <NavLink href="/cars/tab/d">
               <button type="button">중형</button>
             </NavLink>
           </li>
           <li>
-            <NavLink href="/cars/tab/smallsize">
+            <NavLink href="/cars/tab/c">
               <button type="button">소형</button>
             </NavLink>
           </li>
@@ -36,32 +37,55 @@ export default function TabLayout({ children }: { children: ReactNode }) {
           </li>
         </ul>
       </Nav>
-      <Suspense fallback={<h1>불러오는 중...</h1>}>
-        <Main>{children}</Main>
-      </Suspense>
+      <Main>{children}</Main>
     </>
   );
 }
 
 const Nav = styled.nav`
   border: 1px solid;
+
+  ul {
+    display: flex;
+    margin: 6px 12px;
+    overflow: scroll;
+    word-break: keep-all;
+  }
+
+  li + li {
+    margin-left: 8px;
+  }
+
+  a {
+    display: block;
+    border-radius: 62px;
+    overflow: hidden;
+    background-color: ${Theme.subColor};
+  }
+
+  a.active {
+    background-color: ${Theme.mainColor};
+    color: #ffffff;
+  }
+
+  button {
+    padding: 5px 18px;
+    width: 100%;
+    height: 100%;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
 `;
 
 const Main = styled.main`
+  height: calc(100vh - 99px);
+  overflow-y: scroll;
+
   ul {
-    border: 1px solid;
+    border: 1px solid red;
   }
 
   li {
     border: 1px solid;
-
-    img {
-      width: 100px;
-    }
-  }
-
-  h1 {
-    font-size: 2rem;
-    text-align: center;
   }
 `;
