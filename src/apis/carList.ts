@@ -10,7 +10,7 @@ export const getAllCarList = async () => {
 
 export const getSmallSizeCarList = async ({ segment }: { segment: string }) => {
   const { data } = await get({
-    url: `/cars?segment=${segment}`,
+    url: `/cars`,
     qsData: { segment },
   });
 
