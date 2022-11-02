@@ -1,11 +1,23 @@
+import { useEffect, useState } from 'react';
 import CarCatalogList from '../../../components/cars/tab/CarCatalogList';
 import TabLayout from '../../../components/cars/tab/TabLayout';
-import { useSmallSizeCarList } from '../../../hooks/useSmallSizeCarList';
+import { useCarList } from '../../../hooks/useCarList';
 
 export default function SmallCar() {
-  const [smallSizeCarList] = useSmallSizeCarList({ segment: 'C' });
+  const [isLoading, setLoading] = useState(true);
 
-  if (smallSizeCarList.length === 0) {
+  const [carList, invalidate] = useCarList({ segment: 'C' });
+
+  useEffect(() => {
+    invalidate();
+    setLoading(false);
+  }, []);
+
+  if (isLoading) {
+    return <TabLayout>불러오는 중...</TabLayout>;
+  }
+
+  if (carList.length === 0) {
     return (
       <TabLayout>
         <h1>차량이 없습니다.</h1>
@@ -13,5 +25,5 @@ export default function SmallCar() {
     );
   }
 
-  return <CarCatalogList segmentCarList={smallSizeCarList} />;
+  return <CarCatalogList segmentCarList={carList} />;
 }

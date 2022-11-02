@@ -1,11 +1,23 @@
+import { useEffect, useState } from 'react';
 import CarCatalogList from '../../../components/cars/tab/CarCatalogList';
 import TabLayout from '../../../components/cars/tab/TabLayout';
-import { useSuvCarList } from '../../../hooks/useSuvCarList';
+import { useCarList } from '../../../hooks/useCarList';
 
 export default function SuvCar() {
-  const [suvCarList] = useSuvCarList({ segment: 'SUV' });
+  const [isLoading, setLoading] = useState(true);
 
-  if (suvCarList.length === 0) {
+  const [carList, invalidate] = useCarList({ segment: 'SUV' });
+
+  useEffect(() => {
+    invalidate();
+    setLoading(false);
+  }, []);
+
+  if (isLoading) {
+    return <TabLayout>불러오는 중...</TabLayout>;
+  }
+
+  if (carList.length === 0) {
     return (
       <TabLayout>
         <h1>차량이 없습니다.</h1>
@@ -13,5 +25,5 @@ export default function SuvCar() {
     );
   }
 
-  return <CarCatalogList segmentCarList={suvCarList} />;
+  return <CarCatalogList segmentCarList={carList} />;
 }
