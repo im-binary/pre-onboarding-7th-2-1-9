@@ -24,8 +24,13 @@ export default function TabLayout({ children }: { children: ReactNode }) {
             </NavLink>
           </li>
           <li>
-            <NavLink href="/cars/tab/small">
+            <NavLink href="/cars/tab/smallsize">
               <button type="button">소형</button>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink href="/cars/tab/suv">
+              <button type="button">suv</button>
             </NavLink>
           </li>
         </ul>
