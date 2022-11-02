@@ -2,11 +2,6 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  images: {
-    domains: ['interview.platdev.net'],
-    loader: 'imgix',
-    path: 'https://example.com/myaccount/',
-  },
   async redirects() {
     return [
       {
