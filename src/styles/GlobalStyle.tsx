@@ -48,6 +48,7 @@ const globalStyles = css`
     max-width: 450px;
     margin: 0 auto;
     border: 1px solid blue;
+    background-color: #fff;
   }
 `;
 
