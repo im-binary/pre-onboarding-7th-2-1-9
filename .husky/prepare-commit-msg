@@ -1,0 +1,34 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+FILE=$1
+MESSAGE=$(cat $FILE)
+
+if [[ $MESSAGE == "feat"* ]];
+then
+  echo "⭐ $MESSAGE" >$FILE
+elif [[ $MESSAGE == "fix"* ]];
+then
+  echo "🛠 $MESSAGE" >$FILE
+elif [[ $MESSAGE == "build"* ]];
+then
+  echo "🧱 $MESSAGE" >$FILE
+elif [[ $MESSAGE == "chore"* ]];
+then
+  echo "👏 $MESSAGE" >$FILE
+elif [[ $MESSAGE == "refactor"* ]];
+then
+  echo "⚒ $MESSAGE" >$FILE
+elif [[ $MESSAGE == "style"* ]];
+then
+  echo "🎨 $MESSAGE" >$FILE
+elif [[ $MESSAGE == "docs"* ]];
+then
+  echo "✏ $MESSAGE" >$FILE
+elif [[ $MESSAGE == "ci"* ]];
+then
+  echo "💡 $MESSAGE" >$FILE
+else
+  echo "$MESSAGE" >$FILE
+fi
+
