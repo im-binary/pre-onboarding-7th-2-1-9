@@ -26,6 +26,8 @@ export default function Additional({
 }
 
 const Ul = styled.ul`
+  word-break: keep-all;
+
   li {
     padding: 14px 20px;
     font-size: 1.7rem;
@@ -45,6 +47,9 @@ const Ul = styled.ul`
 
     span:first-of-type {
       font-weight: 700;
+    }
+    span + span {
+      margin-left: 10px;
     }
   }
 `;
