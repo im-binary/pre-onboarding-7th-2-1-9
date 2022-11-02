@@ -45,6 +45,8 @@ export default function TabLayout({ children }: { children: ReactNode }) {
 }
 
 const Nav = styled.nav`
+  border-bottom: 1px solid;
+
   ul {
     display: flex;
     margin: 6px 12px;

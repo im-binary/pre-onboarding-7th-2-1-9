@@ -40,8 +40,7 @@ export default function CarCatalogList({ segment }: { segment?: Segment }) {
 
 const Ul = styled.ul`
   word-break: keep-all;
-  border-style: solid;
-  border-width: 1px 0;
+  border-bottom: 1px solid;
 
   li {
     font-size: 1.4rem;
