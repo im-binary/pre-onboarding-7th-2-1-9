@@ -4,7 +4,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 type AxiosRequestHeaders = AxiosRequestConfig<any>['headers'];
 
 const instance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  baseURL: 'https://preonboarding.platdev.net/api',
   timeout: 30_000,
 });
 
