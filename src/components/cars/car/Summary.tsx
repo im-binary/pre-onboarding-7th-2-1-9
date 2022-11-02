@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import Image from 'next/image';
 
 export default function Summary({
   attribute,
@@ -16,7 +17,12 @@ export default function Summary({
   return (
     <Section>
       <div>
-        <img src={`${attribute.imageUrl}`} alt="" />
+        <Image
+          height={'390'}
+          width={'205'}
+          src={`${attribute.imageUrl}`}
+          alt=""
+        />
       </div>
       <ul>
         <li>{attribute.brand}</li>
@@ -36,7 +42,6 @@ const Section = styled.section`
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border: 1px solid red;
     }
   }
 
