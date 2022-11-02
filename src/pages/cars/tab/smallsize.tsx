@@ -14,7 +14,11 @@ export default function SmallCar() {
   }, []);
 
   if (isLoading) {
-    return <TabLayout>불러오는 중...</TabLayout>;
+    return (
+      <TabLayout>
+        <h1>불러오는 중...</h1>
+      </TabLayout>
+    );
   }
 
   if (carList.length === 0) {

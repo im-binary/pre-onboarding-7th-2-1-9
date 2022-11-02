@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import React, { ReactNode } from 'react';
+import React, { ReactNode, Suspense } from 'react';
 import { Header } from '../../Header';
 import { NavLink } from '../../NavLink';
 
@@ -36,7 +36,9 @@ export default function TabLayout({ children }: { children: ReactNode }) {
           </li>
         </ul>
       </Nav>
-      <Main>{children}</Main>
+      <Suspense fallback={<h1>불러오는 중...</h1>}>
+        <Main>{children}</Main>
+      </Suspense>
     </>
   );
 }
@@ -56,5 +58,10 @@ const Main = styled.main`
     img {
       width: 100px;
     }
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-align: center;
   }
 `;
