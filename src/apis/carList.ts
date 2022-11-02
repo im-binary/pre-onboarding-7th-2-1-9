@@ -8,9 +8,36 @@ export const getAllCarList = async () => {
   return data.payload;
 };
 
-export const getSegmentCarList = async ({ segment }: { segment: string }) => {
+export const getSmallSizeCarList = async ({ segment }: { segment: string }) => {
   const { data } = await get({
     url: `/cars?segment=${segment}`,
+    qsData: { segment },
+  });
+
+  return data.payload;
+};
+
+export const getMidSizeCarList = async ({ segment }: { segment: string }) => {
+  const { data } = await get({
+    url: `/cars`,
+    qsData: { segment },
+  });
+
+  return data.payload;
+};
+
+export const getFullSizeCarList = async ({ segment }: { segment: string }) => {
+  const { data } = await get({
+    url: `/cars`,
+    qsData: { segment },
+  });
+
+  return data.payload;
+};
+
+export const getSuvCarList = async ({ segment }: { segment: string }) => {
+  const { data } = await get({
+    url: `/cars`,
     qsData: { segment },
   });
 
