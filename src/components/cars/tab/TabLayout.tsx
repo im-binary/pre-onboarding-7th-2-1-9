@@ -1,4 +1,5 @@
-import React, { ReactNode, Suspense } from 'react';
+import styled from '@emotion/styled';
+import React, { ReactNode } from 'react';
 import { Header } from '../../Header';
 import { NavLink } from '../../NavLink';
 
@@ -6,7 +7,7 @@ export default function TabLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <Header>전체 차량</Header>
-      <nav>
+      <Nav>
         <ul>
           <li>
             <NavLink href="/cars">
@@ -34,10 +35,26 @@ export default function TabLayout({ children }: { children: ReactNode }) {
             </NavLink>
           </li>
         </ul>
-      </nav>
-      <Suspense fallback={<h1>불러오는 중...</h1>}>
-        <main>{children}</main>
-      </Suspense>
+      </Nav>
+      <Main>{children}</Main>
     </>
   );
 }
+
+const Nav = styled.nav`
+  border: 1px solid;
+`;
+
+const Main = styled.main`
+  ul {
+    border: 1px solid;
+  }
+
+  li {
+    border: 1px solid;
+
+    img {
+      width: 100px;
+    }
+  }
+`;
