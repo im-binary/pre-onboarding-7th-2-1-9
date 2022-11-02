@@ -15,7 +15,14 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>차량대여 서비스</title>
       </Head>
       <GlobalStyle />
-      <ErrorBoundary renderFallback={({ error }) => <h1>{error.message}</h1>}>
+      <ErrorBoundary
+        renderFallback={({ error, reset }) => (
+          <>
+            <h1>{error.message}</h1>
+            <button onClick={reset}>확인</button>
+          </>
+        )}
+      >
         <QueryClientProvider client={queryClient}>
           <Layout>
             <Component {...pageProps} />
