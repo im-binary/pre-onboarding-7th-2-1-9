@@ -28,7 +28,7 @@ export function NavLink({
 
   return (
     <Link legacyBehavior href={href} scroll={scroll} replace={replace}>
-      {children}
+      <a className={className}>{children}</a>
     </Link>
   );
 }
