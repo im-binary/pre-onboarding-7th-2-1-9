@@ -1,7 +1,7 @@
 export interface CarItem {
   id: number;
   startDate: string;
-  createdAt: Date;
+  createdAt: string;
   attribute: {
     brand: string;
     name: string;
