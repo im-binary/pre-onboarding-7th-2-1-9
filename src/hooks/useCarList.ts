@@ -1,12 +1,17 @@
-import { getCategoryCarList } from '../apis/carList';
+import { useQuery } from 'react-query';
+import { fetchCarList } from '../apis/carList';
 import { CarItem } from '../model/CarItem';
-import { useFetch } from './useFetch';
 
-export function useCarList({ segment }: { segment: string }) {
-  const { data: carList, invalidate } = useFetch<CarItem[]>(
-    ['getCarList'],
-    () => getCategoryCarList({ segment })
+export function useCarList({ segment }: { segment?: 'C' | 'D' | 'E' | 'SUV' }) {
+  const { data } = useQuery<CarItem[]>(
+    ['getCarList', segment],
+    () => fetchCarList({ segment }),
+    { suspense: true }
   );
 
-  return [carList, invalidate] as const;
+  if (data == null) {
+    throw new Error('데이터를 로드하는데 실패했습니다.');
+  }
+
+  return data;
 }
