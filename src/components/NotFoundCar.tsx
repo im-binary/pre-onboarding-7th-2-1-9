@@ -14,6 +14,5 @@ const Section = styled.section`
   justify-content: center;
   font-size: 1.7rem;
   font-weight: 700;
-  border: 1px solid;
   height: 100%;
 `;
