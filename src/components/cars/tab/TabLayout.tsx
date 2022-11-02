@@ -85,6 +85,6 @@ const Nav = styled.nav`
 `;
 
 const Main = styled.main`
-  height: calc(100vh - 99px);
+  height: calc(100vh - 102px);
   overflow-y: scroll;
 `;

@@ -18,6 +18,6 @@ export default function CarDetailPage() {
 }
 
 const Main = styled.main`
-  height: calc(100vh - 60px);
+  height: calc(100vh - 62.5px);
   overflow-y: scroll;
 `;
