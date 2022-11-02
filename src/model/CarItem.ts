@@ -11,4 +11,8 @@ export interface CarItem {
   };
   insurance: { name: string; description: string }[];
   amount: number;
+  additionalProducts: {
+    name: string;
+    amount: number;
+  }[];
 }
