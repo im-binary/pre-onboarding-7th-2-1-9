@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import styled from '@emotion/styled';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useCarList } from '../../../hooks/useCarList';
 import NotFoundCar from '../../NotFoundCar';
@@ -30,7 +29,7 @@ export default function CarCatalogList({ segment }: { segment?: Segment }) {
             <Amount>월 {amount} 원 부터</Amount>
 
             <CarImage>
-              <Image src={attribute.imageUrl} alt="" width={152} height={80} />
+              <img src={attribute.imageUrl} alt="" />
             </CarImage>
           </Link>
         </li>

@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 import styled from '@emotion/styled';
-import Image from 'next/image';
 
 export default function Summary({
   attribute,
@@ -17,12 +17,7 @@ export default function Summary({
   return (
     <Section>
       <div>
-        <Image
-          height={'390'}
-          width={'205'}
-          src={`${attribute.imageUrl}`}
-          alt=""
-        />
+        <img src={`${attribute.imageUrl}`} alt="" />
       </div>
       <ul>
         <li>{attribute.brand}</li>
