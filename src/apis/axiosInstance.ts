@@ -22,17 +22,12 @@ instance.interceptors.response.use(
 
 export const get = ({
   url,
-  qsData,
+  params,
   headers,
 }: {
   url: string;
-  qsData?: Record<string, string>;
+  params?: Record<string, string>;
   headers?: AxiosRequestHeaders;
 }) => {
-  const qs = new URLSearchParams(qsData).toString();
-  if (qs.length > 0) {
-    url = `${url}?${qs}`;
-  }
-
-  return instance.get(url, { headers });
+  return instance.get(url, { headers, params });
 };
