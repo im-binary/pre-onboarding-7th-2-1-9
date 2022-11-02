@@ -1,6 +1,7 @@
 import { GetServerSideProps } from 'next';
 import { useEffect, useState } from 'react';
 import { Header } from '../../components/Header';
+import Loading from '../../components/Loading';
 import Additional from '../../components/cars/car/Additional';
 import Info from '../../components/cars/car/Info';
 import Insurance from '../../components/cars/car/Insurance';
@@ -24,11 +25,7 @@ export default function CarDetail({
   }, []);
 
   if (isLoading) {
-    return (
-      <>
-        <h1>불러오는 중...</h1>
-      </>
-    );
+    return <Loading />;
   }
 
   const { startDate, attribute, amount, insurance, additionalProducts } =
