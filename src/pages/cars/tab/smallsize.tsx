@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import CarCatalogList from '../../../components/cars/tab/CarCatalogList';
 import TabLayout from '../../../components/cars/tab/TabLayout';
 import { useSmallSizeCarList } from '../../../hooks/useSmallSizeCarList';
 
@@ -13,21 +13,5 @@ export default function SmallCar() {
     );
   }
 
-  return (
-    <TabLayout>
-      {smallSizeCarList.map(({ id, attribute, amount }) => (
-        <Fragment key={id}>
-          <li>{attribute.brand}</li>
-          <li>{attribute.name}</li>
-          <li>
-            {attribute.segment} / {attribute.fuelType}
-          </li>
-          <li>월 {amount} 원 부터</li>
-          <li>
-            <img src={attribute.imageUrl} alt="" />
-          </li>
-        </Fragment>
-      ))}
-    </TabLayout>
-  );
+  return <CarCatalogList segmentCarList={smallSizeCarList} />;
 }
