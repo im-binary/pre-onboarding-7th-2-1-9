@@ -1,17 +1,13 @@
 import { get } from './axiosInstance';
 
-export const getAllCarList = async () => {
+export const fetchCarList = async ({
+  segment,
+}: {
+  segment?: 'C' | 'D' | 'E' | 'SUV';
+}) => {
   const { data } = await get({
     url: '/cars',
-  });
-
-  return data.payload;
-};
-
-export const getCategoryCarList = async ({ segment }: { segment: string }) => {
-  const { data } = await get({
-    url: `/cars`,
-    qsData: { segment },
+    params: segment == null ? {} : { segment },
   });
 
   return data.payload;
