@@ -7,7 +7,9 @@ import { NavLink } from '../../NavLink';
 export default function TabLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <Header>전체 차량</Header>
+      <Header>
+        <h1>전체 차량</h1>
+      </Header>
       <Nav>
         <ul>
           <li>
@@ -43,13 +45,18 @@ export default function TabLayout({ children }: { children: ReactNode }) {
 }
 
 const Nav = styled.nav`
-  border: 1px solid;
-
   ul {
     display: flex;
     margin: 6px 12px;
-    overflow: scroll;
+    overflow-x: scroll;
     word-break: keep-all;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+      width: 0 !important;
+    }
   }
 
   li + li {
@@ -80,12 +87,4 @@ const Nav = styled.nav`
 const Main = styled.main`
   height: calc(100vh - 99px);
   overflow-y: scroll;
-
-  ul {
-    border: 1px solid red;
-  }
-
-  li {
-    border: 1px solid;
-  }
 `;
