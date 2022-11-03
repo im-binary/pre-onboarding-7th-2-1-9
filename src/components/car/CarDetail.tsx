@@ -26,6 +26,7 @@ export default function CarDetail({ car }: CarDetailProps) {
           padding-bottom: 20px;
         `}
       >
+        {/* 차량 이미지, 요금, 이름 */}
         <Summary attribute={attribute} amount={amount} />
 
         {/* 차량정보 */}
