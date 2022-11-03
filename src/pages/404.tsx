@@ -8,10 +8,10 @@ const fullHeight = css`
     height: 100%;
     div {
       height: 100%;
-      overflow: hidden;
     }
   }
 `;
+
 const NotFound = () => {
   return (
     <>

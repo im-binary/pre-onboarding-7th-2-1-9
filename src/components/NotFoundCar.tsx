@@ -9,10 +9,10 @@ export default function NotFoundCar() {
 }
 
 const Section = styled.section`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 1.7rem;
   font-weight: 700;
-  height: 100%;
 `;

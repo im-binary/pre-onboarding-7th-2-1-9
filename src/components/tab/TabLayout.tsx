@@ -44,6 +44,14 @@ export default function TabLayout({ children }: { children: ReactNode }) {
 
 const Nav = styled.nav`
   border-bottom: 1px solid;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  max-width: 450px;
+  margin: 0 auto;
+  background-color: #fff;
+  z-index: 1;
 
   ul {
     display: flex;
@@ -85,6 +93,6 @@ const Nav = styled.nav`
 `;
 
 const Main = styled.main`
-  height: calc(100vh - 102px);
-  overflow-y: scroll;
+  min-height: 100vh;
+  padding-top: 102px;
 `;

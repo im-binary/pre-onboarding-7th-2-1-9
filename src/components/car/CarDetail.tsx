@@ -23,7 +23,7 @@ export default function CarDetail({ car }: CarDetailProps) {
 
       <article
         css={css`
-          margin-bottom: 20px;
+          padding-bottom: 20px;
         `}
       >
         <Summary attribute={attribute} amount={amount} />

@@ -30,8 +30,8 @@ export default function CarDetailPage({ car }: CarDetailPageProps) {
 }
 
 const Main = styled.main`
-  height: calc(100vh - 62.5px);
-  overflow-y: scroll;
+  min-height: 100vh;
+  padding-top: 60px;
 `;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
