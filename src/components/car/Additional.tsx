@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import React, { Fragment } from 'react';
 import { Theme } from '../../styles/Theme';
+import { convertCurrency } from '../../utils/convertCurrency';
 
 export default function Additional({
   additionalProducts,
@@ -17,7 +18,7 @@ export default function Additional({
         <Fragment key={`${name}-${index}`}>
           <li>
             <span>{name}</span>
-            <span>{amount}</span>
+            <span>월 {convertCurrency(amount)} 원 </span>
           </li>
         </Fragment>
       ))}

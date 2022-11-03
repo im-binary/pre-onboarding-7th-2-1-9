@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import styled from '@emotion/styled';
+import { convertCurrency } from '../../utils/convertCurrency';
 
 export default function Summary({
   attribute,
@@ -21,8 +22,8 @@ export default function Summary({
       </div>
       <ul>
         <li>{attribute.brand}</li>
-        <li>{attribute.name}</li>
-        <li>월 {amount}</li>
+        <li className="car-name">{attribute.name}</li>
+        <li>월 {convertCurrency(amount)} 원</li>
       </ul>
     </Section>
   );
@@ -44,6 +45,10 @@ const Section = styled.section`
     padding: 20px;
     font-size: 2rem;
     font-weight: 700;
+
+    .car-name {
+      font-size: 2.4rem;
+    }
 
     li:last-of-type {
       font-size: 1.7rem;

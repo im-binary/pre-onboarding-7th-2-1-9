@@ -1,5 +1,9 @@
 import styled from '@emotion/styled';
 import { Theme } from '../../styles/Theme';
+import {
+  convertFuelType,
+  convertSegment,
+} from '../../utils/convertCarAttribute';
 import { formatDate } from '../../utils/date';
 
 export default function CarInfo({
@@ -14,15 +18,15 @@ export default function CarInfo({
       <li>차량 정보</li>
       <li>
         <span>차종</span>
-        <span>{attribute.segment}</span>
+        <span>{convertSegment(attribute.segment)}</span>
       </li>
       <li>
         <span>연료</span>
-        <span>{attribute.fuelType}</span>
+        <span>{convertFuelType(attribute.fuelType)}</span>
       </li>
       <li>
         <span>이용 가능일</span>
-        <span>{formatDate(new Date(startDate))}</span>
+        <span>{formatDate(new Date(startDate))} 부터</span>
       </li>
     </Ul>
   );

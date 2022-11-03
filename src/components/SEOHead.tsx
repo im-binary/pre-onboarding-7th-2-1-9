@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { CarItem } from '../model/CarItem';
+import { convertCurrency } from '../utils/convertCurrency';
 
 export default function SEOHead({ car }: { car: CarItem }) {
   const { id, attribute, amount } = car;
@@ -19,7 +20,7 @@ export default function SEOHead({ car }: { car: CarItem }) {
         />
         <meta
           property="og:description"
-          content={`${attribute.brand} | ${attribute.name} | 월 ${amount} 원`}
+          content={`월 ${convertCurrency(amount)} 원`}
         />
         <meta property="og:site_name" content="차량 대여 서비스" />
         <meta property="og:locale" content="en_KO" />

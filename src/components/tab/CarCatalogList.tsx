@@ -4,6 +4,11 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useCarList } from '../../hooks/useCarList';
 import { Theme } from '../../styles/Theme';
+import {
+  convertFuelType,
+  convertSegment,
+} from '../../utils/convertCarAttribute';
+import { convertCurrency } from '../../utils/convertCurrency';
 import { newCar } from '../../utils/newCar';
 import NotFoundCar from '../NotFoundCar';
 
@@ -33,10 +38,11 @@ export default function CarCatalogList({ segment }: { segment?: Segment }) {
               <Name>{attribute.name}</Name>
 
               <CarType>
-                {attribute.segment} / {attribute.fuelType}
+                {convertSegment(attribute.segment)} /{' '}
+                {convertFuelType(attribute.fuelType)}
               </CarType>
 
-              <Amount>월 {amount} 원 부터</Amount>
+              <Amount>월 {convertCurrency(amount)} 원 부터</Amount>
 
               <CarImage>
                 <img src={attribute.imageUrl} alt="" />
