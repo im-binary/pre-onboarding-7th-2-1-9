@@ -20,6 +20,7 @@ export default function CarDetail({ car }: CarDetailProps) {
           {`${attribute.brand} - ${attribute.name} | 차량 대여 서비스`}
         </title>
       </Head>
+
       <article
         css={css`
           margin-bottom: 20px;
