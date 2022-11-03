@@ -17,7 +17,7 @@ export default function CarDetail({ car }: CarDetailProps) {
     <>
       <Head>
         <title>
-          {attribute.brand} - {attribute.name} | 차량 대여 서비스
+          {`${attribute.brand} - ${attribute.name} | 차량 대여 서비스`}
         </title>
       </Head>
       <article
