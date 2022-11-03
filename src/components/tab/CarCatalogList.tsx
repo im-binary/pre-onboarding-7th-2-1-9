@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useCarList } from '../../hooks/useCarList';
 import { Theme } from '../../styles/Theme';
@@ -16,29 +17,35 @@ export default function CarCatalogList({ segment }: { segment?: Segment }) {
   }
 
   return (
-    <Ul>
-      {carList.map(({ id, attribute, amount, createdAt }) => (
-        <li key={id}>
-          {newCar(new Date(createdAt)) && <New>신규</New>}
+    <motion.div
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
+      <Ul>
+        {carList.map(({ id, attribute, amount, createdAt }) => (
+          <li key={id}>
+            {newCar(new Date(createdAt)) && <New>신규</New>}
 
-          <Link href={`/${id}`}>
-            <Brand>{attribute.brand}</Brand>
+            <Link href={`/${id}`}>
+              <Brand>{attribute.brand}</Brand>
 
-            <Name>{attribute.name}</Name>
+              <Name>{attribute.name}</Name>
 
-            <CarType>
-              {attribute.segment} / {attribute.fuelType}
-            </CarType>
+              <CarType>
+                {attribute.segment} / {attribute.fuelType}
+              </CarType>
 
-            <Amount>월 {amount} 원 부터</Amount>
+              <Amount>월 {amount} 원 부터</Amount>
 
-            <CarImage>
-              <img src={attribute.imageUrl} alt="" />
-            </CarImage>
-          </Link>
-        </li>
-      ))}
-    </Ul>
+              <CarImage>
+                <img src={attribute.imageUrl} alt="" />
+              </CarImage>
+            </Link>
+          </li>
+        ))}
+      </Ul>
+    </motion.div>
   );
 }
 

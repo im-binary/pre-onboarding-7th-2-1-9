@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
 import { GetServerSideProps } from 'next';
-import Head from 'next/head';
 import { fetchCarList } from '../apis/carList';
+import SEOHead from '../components/SEOHead';
 import TopBar from '../components/TopBar';
 import CarDetail from '../components/car/CarDetail';
 import { CarItem } from '../model/CarItem';
@@ -11,33 +12,18 @@ interface CarDetailPageProps {
 }
 
 export default function CarDetailPage({ car }: CarDetailPageProps) {
-  const { id, attribute, amount } = car;
-
   return (
     <>
-      <Head>
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content={`https://pre-onboarding-7th-2-1-9-two.vercel.app/${id}`}
-        />
-        <meta property="og:image" content={`${attribute.imageUrl}`} />
-        <meta
-          property="og:title"
-          content={`${attribute.brand} - ${attribute.name} | 차량 대여 서비스`}
-        />
-        <meta
-          property="og:description"
-          content={`${attribute.brand} | ${attribute.name} | 월 ${amount} 원`}
-        />
-        <meta property="og:site_name" content="차량 대여 서비스" />
-        <meta property="og:locale" content="en_KO" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-      </Head>
+      <SEOHead car={car} />
       <TopBar title="차량 상세" backButton />
       <Main>
-        <CarDetail car={car} />
+        <motion.div
+          exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <CarDetail car={car} />
+        </motion.div>
       </Main>
     </>
   );
