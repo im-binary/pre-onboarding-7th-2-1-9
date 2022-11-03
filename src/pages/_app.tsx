@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content="https://pre-onboarding-7th-2-1-9-two.vercel.app"
+          content="https://pre-onboarding-7th-2-1-9-two.vercel.app/cars"
         />
         <meta property="og:title" content="차량 대여 서비스" />
         <meta
@@ -31,6 +31,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="og:locale" content="en_KO" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:type" content="website" />
       </Head>
       <GlobalStyle />
       <ErrorBoundary
