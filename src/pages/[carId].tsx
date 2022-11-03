@@ -53,17 +53,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { carId } = query;
   const carList = await fetchCarList();
   if (Array.isArray(carId) || carId == null) {
-    return NotFoundRedirection(
-      encodeURIComponent(`존재하지 않는 차량입니다. ${carId}`)
-    );
+    return notFoundRedirection();
   }
 
   const carDetail = carList.find((car) => String(car.id) === carId);
 
   if (carDetail == null) {
-    return NotFoundRedirection(
-      encodeURIComponent(`존재하지 않는 차량입니다. ${carId}`)
-    );
+    return notFoundRedirection();
   }
 
   return {
@@ -73,11 +69,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   };
 };
 
-function NotFoundRedirection(message: string) {
+function notFoundRedirection() {
   return {
     redirect: {
       permanent: false,
-      destination: `/404?message=${message}`,
+      destination: `/404`,
     },
     props: {},
   };
