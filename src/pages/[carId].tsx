@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import { fetchCarList } from '../apis/carList';
+import TopBar from '../components/TopBar';
 import CarDetail from '../components/car/CarDetail';
-import TopBar from '../components/car/TopBar';
 import { CarItem } from '../model/CarItem';
 
 interface CarDetailPageProps {
@@ -35,7 +35,7 @@ export default function CarDetailPage({ car }: CarDetailPageProps) {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
       </Head>
-      <TopBar />
+      <TopBar title="차량 상세" backButton />
       <Main>
         <CarDetail car={car} />
       </Main>
@@ -53,18 +53,17 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { carId } = query;
   const carList = await fetchCarList();
   if (Array.isArray(carId) || carId == null) {
-    return {
-      // TODO: Error 처리
-      props: {},
-    };
+    return NotFoundRedirection(
+      encodeURIComponent(`존재하지 않는 차량입니다. ${carId}`)
+    );
   }
 
-  const carDetail = carList.find((x) => String(x.id) === carId);
+  const carDetail = carList.find((car) => String(car.id) === carId);
+
   if (carDetail == null) {
-    return {
-      // TODO: Error 처리
-      props: {},
-    };
+    return NotFoundRedirection(
+      encodeURIComponent(`존재하지 않는 차량입니다. ${carId}`)
+    );
   }
 
   return {
@@ -73,3 +72,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }, // will be passed to the page component as props
   };
 };
+
+function NotFoundRedirection(message: string) {
+  return {
+    redirect: {
+      permanent: false,
+      destination: `/404?message=${message}`,
+    },
+    props: {},
+  };
+}

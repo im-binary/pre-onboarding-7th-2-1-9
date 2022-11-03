@@ -1,15 +1,13 @@
 import styled from '@emotion/styled';
 import React, { ReactNode } from 'react';
 import { Theme } from '../../styles/Theme';
-import { Header } from '../Header';
 import { NavLink } from '../NavLink';
+import TopBar from '../TopBar';
 
 export default function TabLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <Header>
-        <h1>전체 차량</h1>
-      </Header>
+      <TopBar title={'전체 차량'} />
       <Nav>
         <ul>
           <li>

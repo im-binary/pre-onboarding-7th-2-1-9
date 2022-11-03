@@ -1,15 +1,25 @@
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
-import { Header } from '../Header';
+import { Header } from './Header';
 
-export default function TopBar() {
+export default function TopBar({
+  title,
+  backButton,
+}: {
+  title: string;
+  backButton?: boolean;
+}) {
   const router = useRouter();
+
   return (
     <Header>
-      <BackButton type="button" onClick={() => router.back()}>
-        뒤로가기
-      </BackButton>
-      <h1>차량상세</h1>
+      {backButton && (
+        <BackButton type="button" onClick={() => router.back()}>
+          뒤로가기
+        </BackButton>
+      )}
+
+      <h1>{title}</h1>
     </Header>
   );
 }
