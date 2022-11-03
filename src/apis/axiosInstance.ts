@@ -20,7 +20,7 @@ instance.interceptors.response.use(
   }
 );
 
-export const get = ({
+export const get = <T>({
   url,
   params,
   headers,
@@ -29,5 +29,5 @@ export const get = ({
   params?: Record<string, string>;
   headers?: AxiosRequestHeaders;
 }) => {
-  return instance.get(url, { headers, params });
+  return instance.get<T>(url, { headers, params });
 };
