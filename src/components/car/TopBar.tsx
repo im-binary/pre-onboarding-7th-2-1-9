@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
-import { Header } from '../../Header';
+import { Header } from '../Header';
 
 export default function TopBar() {
   const router = useRouter();

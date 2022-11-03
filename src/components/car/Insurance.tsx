@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Theme } from '../../../styles/Theme';
+import { Theme } from '../../styles/Theme';
 
 export default function Insurance({
   insurance,

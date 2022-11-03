@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import styled from '@emotion/styled';
 import Link from 'next/link';
-import { useCarList } from '../../../hooks/useCarList';
-import NotFoundCar from '../../NotFoundCar';
+import { useCarList } from '../../hooks/useCarList';
+import NotFoundCar from '../NotFoundCar';
 
 type Segment = 'E' | 'D' | 'C' | 'SUV';
 
@@ -17,7 +17,7 @@ export default function CarCatalogList({ segment }: { segment?: Segment }) {
     <Ul>
       {carList.map(({ id, attribute, amount }) => (
         <li key={id}>
-          <Link href={`/cars/${id}`}>
+          <Link href={`/${id}`}>
             <Brand>{attribute.brand}</Brand>
 
             <Name>{attribute.name}</Name>

@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useCarList } from '../../../hooks/useCarList';
+import { useCarList } from '../../hooks/useCarList';
 import Additional from './Additional';
 import Info from './Info';
 import Insurance from './Insurance';

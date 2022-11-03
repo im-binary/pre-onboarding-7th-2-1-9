@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
-import Loading from '../../components/Loading';
-import { SSRSuspense } from '../../components/cars/SSRSuspense';
-import CarDetail from '../../components/cars/car/CarDetail';
-import TopBar from '../../components/cars/car/TopBar';
+import Loading from '../components/Loading';
+import { SSRSuspense } from '../components/SSRSuspense';
+import CarDetail from '../components/car/CarDetail';
+import TopBar from '../components/car/TopBar';
 
 export default function CarDetailPage() {
   return (

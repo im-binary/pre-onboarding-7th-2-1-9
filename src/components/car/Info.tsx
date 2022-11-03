@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import { Theme } from '../../../styles/Theme';
-import { formatDate } from '../../../utils/date';
+import { Theme } from '../../styles/Theme';
+import { formatDate } from '../../utils/date';
 
 export default function CarInfo({
   attribute,

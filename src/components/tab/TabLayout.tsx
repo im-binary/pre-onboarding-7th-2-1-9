@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import React, { ReactNode } from 'react';
-import { Theme } from '../../../styles/Theme';
-import { Header } from '../../Header';
-import { NavLink } from '../../NavLink';
+import { Theme } from '../../styles/Theme';
+import { Header } from '../Header';
+import { NavLink } from '../NavLink';
 
 export default function TabLayout({ children }: { children: ReactNode }) {
   return (
@@ -13,27 +13,27 @@ export default function TabLayout({ children }: { children: ReactNode }) {
       <Nav>
         <ul>
           <li>
-            <NavLink href="/cars">
+            <NavLink href="/">
               <button type="button">전체</button>
             </NavLink>
           </li>
           <li>
-            <NavLink href="/cars/tab/e">
+            <NavLink href="/tab/e">
               <button type="button">대형</button>
             </NavLink>
           </li>
           <li>
-            <NavLink href="/cars/tab/d">
+            <NavLink href="/tab/d">
               <button type="button">중형</button>
             </NavLink>
           </li>
           <li>
-            <NavLink href="/cars/tab/c">
+            <NavLink href="/tab/c">
               <button type="button">소형</button>
             </NavLink>
           </li>
           <li>
-            <NavLink href="/cars/tab/suv">
+            <NavLink href="/tab/suv">
               <button type="button">suv</button>
             </NavLink>
           </li>

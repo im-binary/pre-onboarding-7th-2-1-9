@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import Loading from '../../components/Loading';
-import { SSRSuspense } from '../../components/cars/SSRSuspense';
-import CarCatalogList from '../../components/cars/tab/CarCatalogList';
-import TabLayout from '../../components/cars/tab/TabLayout';
+import Loading from '../components/Loading';
+import { SSRSuspense } from '../components/SSRSuspense';
+import CarCatalogList from '../components/tab/CarCatalogList';
+import TabLayout from '../components/tab/TabLayout';
 
 export default function CarListPage() {
   return (
@@ -12,7 +12,7 @@ export default function CarListPage() {
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content="https://pre-onboarding-7th-2-1-9-two.vercel.app/cars"
+          content="https://pre-onboarding-7th-2-1-9-two.vercel.app"
         />
         <meta property="og:title" content="차량 대여 서비스" />
         <meta

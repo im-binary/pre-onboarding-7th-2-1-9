@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import React, { Fragment } from 'react';
-import { Theme } from '../../../styles/Theme';
+import { Theme } from '../../styles/Theme';
 
 export default function Additional({
   additionalProducts,
