@@ -2,6 +2,8 @@
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import { useCarList } from '../../hooks/useCarList';
+import { Theme } from '../../styles/Theme';
+import { newCar } from '../../utils/newCar';
 import NotFoundCar from '../NotFoundCar';
 
 type Segment = 'E' | 'D' | 'C' | 'SUV';
@@ -15,8 +17,10 @@ export default function CarCatalogList({ segment }: { segment?: Segment }) {
 
   return (
     <Ul>
-      {carList.map(({ id, attribute, amount }) => (
+      {carList.map(({ id, attribute, amount, createdAt }) => (
         <li key={id}>
+          {newCar(new Date(createdAt)) && <New>신규</New>}
+
           <Link href={`/${id}`}>
             <Brand>{attribute.brand}</Brand>
 
@@ -44,6 +48,7 @@ const Ul = styled.ul`
 
   li {
     font-size: 1.4rem;
+    position: relative;
 
     a {
       padding: 20px;
@@ -56,6 +61,19 @@ const Ul = styled.ul`
   li + li {
     border-top: 1px solid;
   }
+`;
+
+const New = styled.div`
+  border: 1px solid;
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  padding: 4px 15px;
+  background-color: ${Theme.pointColor};
+  color: #fff;
+  border-radius: 42px;
+  font-size: 1.2rem;
+  font-weight: 700;
 `;
 
 const Brand = styled.div`
