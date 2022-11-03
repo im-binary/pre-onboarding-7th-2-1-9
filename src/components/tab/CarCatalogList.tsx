@@ -50,6 +50,10 @@ const Ul = styled.ul`
     font-size: 1.4rem;
     position: relative;
 
+    &:hover {
+      background-color: #d9d9d959;
+    }
+
     a {
       padding: 20px;
       text-decoration: none;
