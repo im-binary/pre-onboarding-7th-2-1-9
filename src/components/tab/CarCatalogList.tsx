@@ -79,6 +79,8 @@ const CarImage = styled.div`
   grid-column: 2;
   grid-row: 1/5;
   vertical-align: middle;
+  width: 152px;
+  height: 80px;
 
   img {
     display: block;
