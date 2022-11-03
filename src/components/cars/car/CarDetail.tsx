@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useCarList } from '../../../hooks/useCarList';
 import Additional from './Additional';
@@ -17,21 +18,28 @@ export default function CarDetail() {
     carDetail[0];
 
   return (
-    <article
-      css={css`
-        margin-bottom: 20px;
-      `}
-    >
-      <Summary attribute={attribute} amount={amount} />
+    <>
+      <Head>
+        <title>
+          {attribute.brand} - {attribute.name} | 차량 대여 서비스
+        </title>
+      </Head>
+      <article
+        css={css`
+          margin-bottom: 20px;
+        `}
+      >
+        <Summary attribute={attribute} amount={amount} />
 
-      {/* 차량정보 */}
-      <Info attribute={attribute} startDate={startDate} />
+        {/* 차량정보 */}
+        <Info attribute={attribute} startDate={startDate} />
 
-      {/* 보험 */}
-      <Insurance insurance={insurance} />
+        {/* 보험 */}
+        <Insurance insurance={insurance} />
 
-      {/* 추가상품 */}
-      <Additional additionalProducts={additionalProducts} />
-    </article>
+        {/* 추가상품 */}
+        <Additional additionalProducts={additionalProducts} />
+      </article>
+    </>
   );
 }
